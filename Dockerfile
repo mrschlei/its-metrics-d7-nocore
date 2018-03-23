@@ -64,7 +64,7 @@ RUN chmod -R 775 /var/log/apache2 /var/www/html/sites/default /etc/apache2 \
 COPY start.sh /usr/local/bin
 RUN chown root:root /usr/local/bin/start.sh
 RUN chmod 775 /usr/local/bin/start.sh
-#CMD /usr/local/bin/start.sh
+CMD /usr/local/bin/start.sh
 
 ### Schleif adds - delete everything under here
 # Redirect logs to stdout and stderr for docker reasons.
