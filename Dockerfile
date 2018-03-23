@@ -99,4 +99,4 @@ RUN chmod -R 2775 /var/www/html /var/cosign
 #drush @sites cc all --yes
 #RUN drush up --no-backup --yes
 
-RUN /usr/local/bin/apache2-foreground
+#RUN /usr/local/bin/apache2-foreground
