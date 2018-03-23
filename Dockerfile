@@ -79,6 +79,8 @@ RUN ln -sf /secrets/ssl/USERTrustRSACertificationAuthority.pem /etc/ssl/certs/US
 RUN ln -sf /secrets/ssl/AddTrustExternalCARoot.pem /etc/ssl/certs/AddTrustExternalCARoot.pem
 RUN ln -sf /secrets/ssl/sha384-Intermediate-cert.pem /etc/ssl/certs/sha384-Intermediate-cert.pem
 
+RUN ln -sf /secrets/ssl/its-metrics.openshift.it.umich.edu.cert /etc/ssl/certs/its-metrics.openshift.it.umich.edu.cert
+
 #if [ -f /secrets/app/local.start.sh ]
 #then
 #RUN /bin/sh /secrets/app/local.start.sh
