@@ -81,7 +81,7 @@ RUN ln -sf /secrets/ssl/sha384-Intermediate-cert.pem /etc/ssl/certs/sha384-Inter
 
 #if [ -f /secrets/app/local.start.sh ]
 #then
-RUN /bin/sh /secrets/app/local.start.sh
+#RUN /bin/sh /secrets/app/local.start.sh
 #fi
 
 ## Rehash command needs to be run before starting apache.
