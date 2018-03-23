@@ -15,10 +15,10 @@ ln -sf /secrets/ssl/AddTrustExternalCARoot.pem /etc/ssl/certs/AddTrustExternalCA
 ln -sf /secrets/ssl/sha384-Intermediate-cert.pem /etc/ssl/certs/sha384-Intermediate-cert.pem
 
 ##schleif edit - commenting out this loop, in case there are chown/chmod things in local.start.sh
-#if [ -f /secrets/app/local.start.sh ]
-#then
-#  /bin/sh /secrets/app/local.start.sh
-#fi
+if [ -f /secrets/app/local.start.sh ]
+then
+  /bin/sh /secrets/app/local.start.sh
+fi
 ##end schleif comment-out'ing
 
 ## Rehash command needs to be run before starting apache.
