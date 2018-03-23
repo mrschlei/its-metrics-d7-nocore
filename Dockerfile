@@ -61,7 +61,7 @@ RUN chmod -R 775 /var/log/apache2 /var/www/html/sites/default /etc/apache2 \
 ### Start script incorporates config files and sends logs to stdout ###
 COPY start.sh /usr/local/bin
 RUN chown root:www-data /usr/local/bin/start.sh
-RUN chmod 775 /usr/local/bin/start.sh
+RUN chmod 777 /usr/local/bin/start.sh
 CMD /usr/local/bin/start.sh
 
 
