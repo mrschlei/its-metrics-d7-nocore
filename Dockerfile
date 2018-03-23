@@ -13,7 +13,7 @@ ENV APACHE2=/usr/sbin/apache2
 # install PHP and Apache2 here
 RUN apt-get update \
 	&& apt-get install -y wget gcc make openssl \
-		libssl-dev=$OPENSSL_VERSION apache2-dev autoconf
+		libssl-dev=$OPENSSL_VERSION apache2-dev autoconf nettools
 
 ### Build Cosign ###
 RUN wget "$COSIGN_URL" \
@@ -46,8 +46,8 @@ EXPOSE 80
 ### and APACHE_RUN_GROUP in env vars or /etc/apache2/envvars
 
 ### change directory owner, as openshift user is in root group.
-RUN chown -R root:root /var/www/html/sites /var/log/apache2 /var/lock/apache2 \
-	/var/run/apache2
+RUN chown -R root:root /var/www/html /var/log/apache2 /var/lock/apache2 \
+	/var/run/apache2 
 
 ### Modify perms for the openshift user, who is not root, but part of root group.
 RUN chmod -R 775 /var/www/html /var/cosign 
