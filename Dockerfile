@@ -79,7 +79,7 @@ RUN ln -sf /secrets/ssl/USERTrustRSACertificationAuthority.pem /etc/ssl/certs/US
 RUN ln -sf /secrets/ssl/AddTrustExternalCARoot.pem /etc/ssl/certs/AddTrustExternalCARoot.pem
 RUN ln -sf /secrets/ssl/sha384-Intermediate-cert.pem /etc/ssl/certs/sha384-Intermediate-cert.pem
 
-RUN cgr update drush/drush:7.1.0
+RUN composer require drush/drush:7.1.0
 
 #if [ -f /secrets/app/local.start.sh ]
 #then
