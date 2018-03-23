@@ -44,12 +44,12 @@ EXPOSE 8443
 ### and APACHE_RUN_GROUP in env vars or /etc/apache2/envvars
 
 ### change directory owner, as openshift user is in root group.
-RUN chown -R root:root /var/www/html/sites /var/log/apache2 /var/lock/apache2 \
+RUN chown -R root:root /var/www/html /var/log/apache2 /var/lock/apache2 \
 	/var/run/apache2
 
 ### Modify perms for the openshift user, who is not root, but part of root group.
-RUN chmod g+r /var/www/html /var/cosign 
-RUN chmod g+rw /var/log/apache2 /var/www/html/sites/default /etc/apache2 \
+RUN chmod -R g+r /var/www/html /var/cosign 
+RUN chmod -R g+rw /var/log/apache2 /var/www/html/sites/default /etc/apache2 \
 	/etc/ssl/certs/ /etc/apache2/mods-enabled /etc/apache2/sites-enabled \
 	/etc/apache2/sites-available /etc/apache2/mods-available \
 	/var/lib/apache2/module/enabled_by_admin /var/lib/apache2/site/enabled_by_admin \
@@ -61,12 +61,12 @@ RUN chmod g+rw /var/log/apache2 /var/www/html/sites/default /etc/apache2 \
 ### Start script incorporates config files and sends logs to stdout ###
 COPY start.sh /usr/local/bin
 RUN chmod 755 /usr/local/bin/start.sh
-#CMD /usr/local/bin/start.sh
+CMD /usr/local/bin/start.sh
 
 ### Schleif adds - delete everything under here
 # Redirect logs to stdout and stderr for docker reasons.
-RUN ln -sf /dev/stdout /var/log/apache2/access_log
-RUN ln -sf /dev/stderr /var/log/apache2/error_log
+#RUN ln -sf /dev/stdout /var/log/apache2/access_log
+#RUN ln -sf /dev/stderr /var/log/apache2/error_log
 
 # apache and virtual host secrets
 #RUN ln -sf /secrets/apache2/apache2.conf /etc/apache2/apache2.conf
@@ -94,8 +94,8 @@ RUN ln -sf /dev/stderr /var/log/apache2/error_log
 #RUN a2ensite default-ssl 
 
 ## set SGID for www-data 
-RUN chown -R www-data.www-data /var/www/html /var/cosign
-RUN chmod -R 2775 /var/www/html /var/cosign
+#RUN chown -R www-data.www-data /var/www/html /var/cosign
+#RUN chmod -R 2775 /var/www/html /var/cosign
 
 #RUN cd /var/www/html
 #drush @sites cc all --yes
