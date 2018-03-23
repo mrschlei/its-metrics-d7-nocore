@@ -89,7 +89,7 @@ RUN c_rehash /etc/ssl/certs
 
 RUN a2enmod ssl
 RUN a2enmod include
-RUN a2ensite default-ssl 
+#RUN a2ensite default-ssl 
 
 ## set SGID for www-data 
 RUN chown -R www-data.www-data /var/www/html /var/cosign
