@@ -79,8 +79,6 @@ RUN ln -sf /secrets/ssl/USERTrustRSACertificationAuthority.pem /etc/ssl/certs/US
 RUN ln -sf /secrets/ssl/AddTrustExternalCARoot.pem /etc/ssl/certs/AddTrustExternalCARoot.pem
 RUN ln -sf /secrets/ssl/sha384-Intermediate-cert.pem /etc/ssl/certs/sha384-Intermediate-cert.pem
 
-RUN composer require drush/drush:7.1.0
-
 #if [ -f /secrets/app/local.start.sh ]
 #then
 #RUN /bin/sh /secrets/app/local.start.sh
@@ -97,8 +95,8 @@ RUN a2enmod include
 RUN chown -R www-data.www-data /var/www/html /var/cosign
 RUN chmod -R 2775 /var/www/html /var/cosign
 
-RUN cd /var/www/html
+#RUN cd /var/www/html
 #drush @sites cc all --yes
-RUN drush up --no-backup --yes
+#RUN drush up --no-backup --yes
 
 RUN /usr/local/bin/apache2-foreground
