@@ -43,8 +43,8 @@ EXPOSE 8443
 ### There may be an easier way to do all of this by setting APACHE_RUN_USER
 ### and APACHE_RUN_GROUP in env vars or /etc/apache2/envvars
 
-### Specify group www-data for Apache files, chmod them to 775
-RUN chown -R root:www-data /var/www/html/sites /var/log/apache2 /var/lock/apache2 \
+### change directory owner, as openshift user is in root group.
+RUN chown -R root:root /var/www/html/sites /var/log/apache2 /var/lock/apache2 \
 	/var/run/apache2
 
 ### Modify perms for the openshift user, who is not root, but part of root group.
@@ -60,7 +60,7 @@ RUN chmod -R 775 /var/log/apache2 /var/www/html/sites/default /etc/apache2 \
 
 ### Start script incorporates config files and sends logs to stdout ###
 COPY start.sh /usr/local/bin
-RUN chown root:www-data /usr/local/bin/start.sh
+RUN chown root:root /usr/local/bin/start.sh
 RUN chmod 775 /usr/local/bin/start.sh
 #CMD /usr/local/bin/start.sh
 
