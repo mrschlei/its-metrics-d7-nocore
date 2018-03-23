@@ -87,8 +87,8 @@ RUN ln -sf /secrets/ssl/sha384-Intermediate-cert.pem /etc/ssl/certs/sha384-Inter
 ## Rehash command needs to be run before starting apache.
 RUN c_rehash /etc/ssl/certs
 
-RUN a2enmod ssl
-RUN a2enmod include
+#RUN a2enmod ssl
+#RUN a2enmod include
 #RUN a2ensite default-ssl 
 
 ## set SGID for www-data 
