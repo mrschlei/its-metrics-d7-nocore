@@ -64,7 +64,6 @@ RUN chown root:root /usr/local/bin/start.sh
 RUN chmod 775 /usr/local/bin/start.sh
 #CMD /usr/local/bin/start.sh
 
-
 ### Schleif adds - delete everything under here
 # Redirect logs to stdout and stderr for docker reasons.
 RUN ln -sf /dev/stdout /var/log/apache2/access_log
