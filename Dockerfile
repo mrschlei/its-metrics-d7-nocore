@@ -62,13 +62,13 @@ RUN chmod -R 775 /var/log/apache2 /var/www/html/sites/default /etc/apache2 \
 COPY start.sh /usr/local/bin
 RUN chown root:www-data /usr/local/bin/start.sh
 RUN chmod 775 /usr/local/bin/start.sh
-CMD /usr/local/bin/start.sh
+#CMD /usr/local/bin/start.sh
 
 
 ### Schleif adds - delete everything under here
 # Redirect logs to stdout and stderr for docker reasons.
-#RUN ln -sf /dev/stdout /var/log/apache2/access_log
-#RUN ln -sf /dev/stderr /var/log/apache2/error_log
+RUN ln -sf /dev/stdout /var/log/apache2/access_log
+RUN ln -sf /dev/stderr /var/log/apache2/error_log
 
 # apache and virtual host secrets
 #RUN ln -sf /secrets/apache2/apache2.conf /etc/apache2/apache2.conf
