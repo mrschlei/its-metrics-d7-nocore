@@ -40,6 +40,8 @@ RUN apt-get remove -y make wget autoconf \
 EXPOSE 8080
 EXPOSE 8443
 
+EXPOSE 80
+
 ### There may be an easier way to do all of this by setting APACHE_RUN_USER
 ### and APACHE_RUN_GROUP in env vars or /etc/apache2/envvars
 
