@@ -37,10 +37,8 @@ RUN apt-get remove -y make wget autoconf \
 	&& apt-get autoremove -y
 
 # Section that setups up Apache and Cosign to run as non-root user.
-#EXPOSE 80
-EXPOSE 443
-#EXPOSE 8080
-#EXPOSE 8443
+EXPOSE 8080
+EXPOSE 8443
 
 ### There may be an easier way to do all of this by setting APACHE_RUN_USER
 ### and APACHE_RUN_GROUP in env vars or /etc/apache2/envvars
