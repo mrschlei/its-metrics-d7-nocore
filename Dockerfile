@@ -38,6 +38,7 @@ RUN apt-get remove -y make wget autoconf \
 
 # Section that setups up Apache and Cosign to run as non-root user.
 EXPOSE 80
+EXPOSE 443
 EXPOSE 8080
 EXPOSE 8443
 
