@@ -37,6 +37,7 @@ RUN apt-get remove -y make wget autoconf \
 	&& apt-get autoremove -y
 
 # Section that setups up Apache and Cosign to run as non-root user.
+EXPOSE 80
 EXPOSE 8080
 EXPOSE 8443
 
@@ -63,42 +64,3 @@ COPY start.sh /usr/local/bin
 RUN chmod 755 /usr/local/bin/start.sh
 CMD /usr/local/bin/start.sh
 
-### Schleif adds - delete everything under here
-# Redirect logs to stdout and stderr for docker reasons.
-#RUN ln -sf /dev/stdout /var/log/apache2/access_log
-#RUN ln -sf /dev/stderr /var/log/apache2/error_log
-
-# apache and virtual host secrets
-#RUN ln -sf /secrets/apache2/apache2.conf /etc/apache2/apache2.conf
-#RUN ln -sf /secrets/apache2/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
-#RUN ln -sf /secrets/apache2/cosign.conf /etc/apache2/mods-available/cosign.conf
-
-# SSL secrets
-#RUN ln -sf /secrets/ssl/USERTrustRSACertificationAuthority.pem /etc/ssl/certs/USERTrustRSACertificationAuthority.pem
-#RUN ln -sf /secrets/ssl/AddTrustExternalCARoot.pem /etc/ssl/certs/AddTrustExternalCARoot.pem
-#RUN ln -sf /secrets/ssl/sha384-Intermediate-cert.pem /etc/ssl/certs/sha384-Intermediate-cert.pem
-
-#SSLCertificateFile: file '/etc/ssl/certs/its-metrics.openshift.it.umich.edu.cert' does not exist or is empty
-#RUN ln -sf /secrets/ssl/its-metrics.openshift.it.umich.edu.cert /etc/ssl/certs/its-metrics.openshift.it.umich.edu.cert
-
-#if [ -f /secrets/app/local.start.sh ]
-#then
-#RUN /bin/sh /secrets/app/local.start.sh
-#fi
-
-## Rehash command needs to be run before starting apache.
-#RUN c_rehash /etc/ssl/certs
-
-#RUN a2enmod ssl
-#RUN a2enmod include
-#RUN a2ensite default-ssl 
-
-## set SGID for www-data 
-#RUN chown -R www-data.www-data /var/www/html /var/cosign
-#RUN chmod -R 2775 /var/www/html /var/cosign
-
-#RUN cd /var/www/html
-#drush @sites cc all --yes
-#RUN drush up --no-backup --yes
-
-#RUN /usr/local/bin/apache2-foreground
