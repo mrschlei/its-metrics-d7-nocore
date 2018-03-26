@@ -38,6 +38,9 @@ RUN apt-get remove -y make wget autoconf \
 EXPOSE 8080
 EXPOSE 8443
 
+# nothing here for the time being.
+COPY . /var/www/html/
+
 ### There may be an easier way to do all of this by setting APACHE_RUN_USER
 ### and APACHE_RUN_GROUP in env vars or /etc/apache2/envvars
 
@@ -52,9 +55,6 @@ RUN chmod -R g+rw /var/log/apache2 /var/www/html/sites/default /etc/apache2 \
 	/etc/apache2/sites-available /etc/apache2/mods-available \
 	/var/lib/apache2/module/enabled_by_admin /var/lib/apache2/site/enabled_by_admin \
 	/var/lock/apache2 /var/run/apache2
-
-# nothing here for the time being.
-COPY . /var/www/html/
 
 ### Start script incorporates config files and sends logs to stdout ###
 COPY start.sh /usr/local/bin
