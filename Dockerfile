@@ -30,8 +30,6 @@ RUN wget "$COSIGN_URL" \
 	&& mkdir -p /var/cosign/filter \
 	&& chmod 777 /var/cosign/filter
 
-#WORKDIR /etc/apache2
-
 ### Remove pre-reqs ###
 RUN apt-get remove -y make wget autoconf \
 	&& apt-get autoremove -y
@@ -56,7 +54,7 @@ RUN chmod -R g+rw /var/log/apache2 /var/www/html/sites/default /etc/apache2 \
 	/var/lock/apache2 /var/run/apache2
 
 # nothing here for the time being.
-#COPY . /var/www/html/
+COPY . /var/www/html/
 
 ### Start script incorporates config files and sends logs to stdout ###
 COPY start.sh /usr/local/bin
