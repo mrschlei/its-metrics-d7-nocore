@@ -14,7 +14,7 @@ ENV APACHE2=/usr/sbin/apache2
 RUN apt-get update \
 	&& apt-get install -y wget gcc make openssl \
 		libssl-dev=$OPENSSL_VERSION apache2-dev autoconf \
-		net-tools
+		net-tools inetutils-traceroute
 
 ### Build Cosign ###
 RUN wget "$COSIGN_URL" \
