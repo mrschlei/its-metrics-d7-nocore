@@ -13,7 +13,8 @@ ENV APACHE2=/usr/sbin/apache2
 # install PHP and Apache2 here
 RUN apt-get update \
 	&& apt-get install -y wget gcc make openssl \
-		libssl-dev=$OPENSSL_VERSION apache2-dev autoconf
+		libssl-dev=$OPENSSL_VERSION apache2-dev autoconf \
+		net-tools
 
 ### Build Cosign ###
 RUN wget "$COSIGN_URL" \
