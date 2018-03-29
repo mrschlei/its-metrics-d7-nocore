@@ -1,4 +1,5 @@
-FROM drupal:7.58-apache
+FROM drupal:7
+#FROM drupal:7.58-apache
 
 #MAINTAINER: 
 
