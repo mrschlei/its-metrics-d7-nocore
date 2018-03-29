@@ -126,8 +126,8 @@ DirectoryIndex index.php index.html index.htm
   RewriteCond %{REQUEST_URI} !=/favicon.ico
   #RewriteRule ^ index.php [L]
   
-  RewriteCond %{REQUEST_URI} !cosign/valid
-  RewriteRule ^ index.php [L]
+#  RewriteCond %{REQUEST_URI} !cosign/valid
+#  RewriteRule ^ index.php [L]
   
 
   # Rules to correctly serve gzip compressed CSS and JS files.
@@ -157,9 +157,65 @@ DirectoryIndex index.php index.html index.htm
 </IfModule>
 
 #added so human-created folders bounce back to Drupal 
- RewriteCond %{REQUEST_URI} ^/login/?$ 
- RewriteRule ^ /index.php [L] 
+RewriteCond %{REQUEST_URI} ^/login/?$ 
+RewriteRule ^ /index.php [L] 
 
+RewriteCond %{REQUEST_URI} ^/login?$ 
+RewriteRule ^ /index.php [L] 
+
+RewriteCond %{REQUEST_URI} ^/about/web-team-request?$
+RewriteRule ^ /index.php [L]
+
+RewriteCond %{REQUEST_URI} ^/communication/television-video/mivideo/request?$
+RewriteRule ^ /index.php [L]
+
+RewriteCond %{REQUEST_URI} ^/communication/television-video/video-streaming/request-form?$
+RewriteRule ^ /index.php [L]
+
+RewriteCond %{REQUEST_URI} ^/communication/videoconferencing/room-systems/registration?$
+RewriteRule ^ /index.php [L]
+
+RewriteCond %{REQUEST_URI} ^/computing/backup-storage/mivideo/request?$
+RewriteRule ^ /index.php [L]
+
+RewriteCond %{REQUEST_URI} ^/computing/computers-software/campus-computing-sites/help?$
+RewriteRule ^ /index.php [L]
+
+RewriteCond %{REQUEST_URI} ^/computing/email-calendar/mail-relay-form?$
+RewriteRule ^ /index.php [L]
+
+RewriteCond %{REQUEST_URI} ^/enterprise/wifi-networks/campus-building-network-connections?$
+RewriteRule ^ /index.php [L]
+
+RewriteCond %{REQUEST_URI} ^/iq/contact-form?$
+RewriteRule ^ /index.php [L]
+
+RewriteCond %{REQUEST_URI} ^/iq/metrics?$
+RewriteRule ^ /index.php [L]
+
+RewriteCond %{REQUEST_URI} ^/news/data-warehouse-oracle-upgrade?$
+RewriteRule ^ /index.php [L]
+
+RewriteCond %{REQUEST_URI} ^/news/financials-physical-resources-system-upgrade-2016?$
+RewriteRule ^ /index.php [L]
+
+RewriteCond %{REQUEST_URI} ^/news/human-resource-management-system-oracle-upgrade?$
+RewriteRule ^ /index.php [L]
+
+RewriteCond %{REQUEST_URI} ^/news/mcard-database-oracle-upgrade?$
+RewriteRule ^ /index.php [L]
+
+RewriteCond %{REQUEST_URI} ^/news/nextgen-data-warehouse-oracle-upgrade?$
+RewriteRule ^ /index.php [L]
+
+RewriteCond %{REQUEST_URI} ^/news/student-administration-oracle-upgrade?$
+RewriteRule ^ /index.php [L]
+
+RewriteCond %{REQUEST_URI} ^/projects/e-signature/get-started/onboard?$
+RewriteRule ^ /index.php [L]
+
+RewriteCond %{REQUEST_URI} ^/projects/e-signature/user-registration-report?$
+RewriteRule ^ /index.php [L]
 
 # Add headers to all responses.
 <IfModule mod_headers.c>
