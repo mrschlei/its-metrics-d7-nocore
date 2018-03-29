@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+    openshift.io/image.dockerRepositoryCheck: 2018-03-22T15:11:35Z
+  creationTimestamp: null
+  generation: 3
+  labels:
+    app: its-metrics-d7-nocore
+  name: drupal
+spec: {}
+status:
+  dockerImageRepository: ""
