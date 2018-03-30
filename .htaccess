@@ -124,7 +124,8 @@ DirectoryIndex index.php index.html index.htm
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} !=/favicon.ico
-  #RewriteRule ^ index.php [L]
+  # uncommented by benfa
+  RewriteRule ^ index.php [L]
   
   RewriteCond %{REQUEST_URI} !cosign/valid
   RewriteRule ^ index.php [L]
