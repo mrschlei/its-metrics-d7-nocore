@@ -155,6 +155,7 @@ DirectoryIndex index.php index.html index.htm
   </IfModule>
 </IfModule>
 
+# uncommented by benfa
 #added so human-created folders bounce back to Drupal 
  RewriteCond %{REQUEST_URI} ^/login/?$ 
  RewriteRule ^ /index.php [L] 
