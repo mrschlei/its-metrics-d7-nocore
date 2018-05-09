@@ -6,6 +6,8 @@ COPY . /var/www/html/
 ### change directory owner, as openshift user is in root group.
 ###RUN chown -R root:root /var/www/html /var/log/apache2 /var/lock/apache2 \
 ###	/var/run/apache2 /usr/local/etc/php /usr/local/lib/php
+
+RUN mkdir -p /var/www/html/sites/default/
 	
 ### Modify perms for the openshift user, who is not root, but part of root group.
 RUN chmod -R g+r /var/www/html
