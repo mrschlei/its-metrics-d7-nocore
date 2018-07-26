@@ -19,6 +19,29 @@ RUN chmod -R g+r /var/www/html
 ### 	 /usr/local/lib/php
 RUN chmod g+x /etc/ssl/private
 
+
+#######???
+# From here: http://docs.drush.org/en/7.x/install/
+# git is not previously installed on the image
+ENV DRUSH_VERSION 8.1.17
+
+RUN apt-get update \
+  && apt-get install -y git
+
+RUN curl -sS https://getcomposer.org/installer | php \
+  && mv composer.phar /usr/local/bin/composer \
+  && ln -s /usr/local/bin/composer /usr/bin/composer
+
+RUN git clone https://github.com/drush-ops/drush.git /usr/local/src/drush \
+  && cd /usr/local/src/drush \
+  && git checkout ${DRUSH_VERSION} \
+  && ln -s /usr/local/src/drush/drush /usr/bin/drush \
+  && composer install \
+  && drush --version
+
+#######end ???
+
+
 COPY start.sh /usr/local/bin
 RUN chmod 755 /usr/local/bin/start.sh
 CMD /usr/local/bin/start.sh
