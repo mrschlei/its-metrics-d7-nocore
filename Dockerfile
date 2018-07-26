@@ -2,7 +2,6 @@ FROM drupal7-cosign:latest
 
 COPY . /var/www/html/
 
-
 ### change directory owner, as openshift user is in root group.
 ###RUN chown -R root:root /var/www/html /var/log/apache2 /var/lock/apache2 \
 ###	/var/run/apache2 /usr/local/etc/php /usr/local/lib/php
@@ -20,7 +19,6 @@ RUN chmod -R g+r /var/www/html
 RUN chmod g+x /etc/ssl/private
 
 
-#######???
 # From here: http://docs.drush.org/en/7.x/install/
 # git is not previously installed on the image
 ENV DRUSH_VERSION 8.1.17
@@ -38,8 +36,7 @@ RUN git clone https://github.com/drush-ops/drush.git /usr/local/src/drush \
   && ln -s /usr/local/src/drush/drush /usr/bin/drush \
   && composer install \
   && drush --version
-
-#######end ???
+  # end drush doings
 
 
 COPY start.sh /usr/local/bin
