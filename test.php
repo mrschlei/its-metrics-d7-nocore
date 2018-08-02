@@ -50,7 +50,7 @@ $uniqname = $_SERVER["REMOTE_USER"];
 if ($uniqname == "mrschlei") {
 	$env = "uat";	
 }
-else {$env = "dev";}
+else {$env = "uat";}
 //echo "<p><strong>Logged in as:</strong> ".$uniqname."</p>";
 ?>
 <h1>Apple Device Enrollment Program</h1>
