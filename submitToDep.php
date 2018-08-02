@@ -159,9 +159,9 @@ function callDepApi($data){
 	curl_setopt($ch, CURLOPT_TIMEOUT, 30);
 	if ($_POST["env"] == "uat"){
 		curl_setopt($ch, CURLOPT_SSLCERT, "/etc/ssl/certs/GRX-0000046475.ACC1914.Test.AppleCare.cert.pem");
-		curl_setopt($ch, CURLOPT_SSLKEY, "/etc/ssl/private/privatekey.pem");
+		curl_setopt($ch, CURLOPT_SSLKEY, "/etc/ssl/private/GRX-0000046475.ACC1914.Test.AppleCare.cert.private.pem");
 		//curl_setopt($ch, CURLOPT_SSLCERT, "/etc/ssl/certs/GRX-0000046475.ACC1914.Test.AppleCare.cert.pem");
-		curl_setopt($ch, CURLOPT_SSLCERTPASSWD,"ma15&8lue");
+		curl_setopt($ch, CURLOPT_SSLCERTPASSWD,$_ENV["sslpass"]);
 	}
 	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data)); 
 	$response = curl_exec($ch); 
