@@ -34,24 +34,19 @@ input[type=submit]:hover {
 }
 </style>
 <script type="text/javascript">
-function checkform() {
-	if(!document.depform.serialNumber.value) { 
-		alert("Please enter the device serial number"); document.depform.serialNumber.focus(); return false; }
-	if(!document.depform.orderNumber.value) { 
-		alert("Please enter the RMS sales transaction number"); document.depform.orderNumber.focus(); return false; } 
-}
+//function checkform() {
+//	if(!document.depform.serialNumber.value) { 
+//		alert("Please enter the device serial number"); document.depform.serialNumber.focus(); return false; }
+//	if(!document.depform.orderNumber.value) { 
+//		alert("Please enter the RMS sales transaction number"); document.depform.orderNumber.focus(); return false; } 
+//}
 </script>
 
 </head>
 
 <body>
 <?php 
-$uniqname = $_SERVER["REMOTE_USER"];
-if ($uniqname == "mrschlei") {
 	$env = "uat";	
-}
-else {$env = "uat";}
-//echo "<p><strong>Logged in as:</strong> ".$uniqname."</p>";
 ?>
 <h1>Apple Device Enrollment Program</h1>
 
