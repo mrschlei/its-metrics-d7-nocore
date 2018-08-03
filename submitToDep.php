@@ -79,7 +79,10 @@ function buildRequest(){
 		$customerID = "10000";
 	}
 	
- $dateTime = date("Y-m-d\TH:i:s\Z");  // Double check.
+// $dateTime = date("Y-m-d\TH:i:s\Z");  // Double check.
+ //per script
+ $dateTime = date("Y-m-d\TH:i:s\Z", mktime(0, 0, 0, 1, 1, 2018));
+ $shipDate = date("Y-m-d\TH:i:s\Z", mktime(0, 0, 0, 1, 2, 2018));
  $data_array = array(
    'requestContext' =>
   	array(
@@ -102,7 +105,7 @@ function buildRequest(){
         0 =>
         array(
            'deliveryNumber' => 'D1.2',  // How to increment this according to requirement.
-           'shipDate' => $dateTime,
+           'shipDate' => $shipDate,
            'devices' =>
           array (
             0 =>
