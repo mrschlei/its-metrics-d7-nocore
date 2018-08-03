@@ -69,6 +69,7 @@ function addResultToTable($db, $result){
 function buildRequest(){
 
 	$orders  = explode(",", $_POST["serialNumber"]);	
+	$orders = (object) $orders;
 	
 	echo "<pre>".$_POST["env"]."</pre>";
 	if ($_POST["env"] == "dev") {
