@@ -118,7 +118,7 @@ function buildRequest(){
     ),
   ),
 );
-//  echo "<pre>";var_dump($data_array);echo "</pre>";
+  echo "<hr /><h2>Request json</h2><pre>".var_dump($data_array)."</pre><hr />";
   return $data_array;
 
 }
