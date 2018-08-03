@@ -67,7 +67,7 @@ function addResultToTable($db, $result){
 }
 
 function buildRequest(){
-	
+	echo "<pre>".$_POST["env"]."</pre>";
 	if ($_POST["env"] == "dev") {
 		$shipto = '0000046475';
 		$resellerid = "0000046475";
