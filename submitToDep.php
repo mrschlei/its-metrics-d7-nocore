@@ -67,6 +67,9 @@ function addResultToTable($db, $result){
 }
 
 function buildRequest(){
+
+	$orders  = explode(",", $_POST["serialNumber"]);	
+	
 	echo "<pre>".$_POST["env"]."</pre>";
 	if ($_POST["env"] == "dev") {
 		$shipto = '0000046475';
@@ -109,9 +112,7 @@ function buildRequest(){
            'devices' =>
           array (
             0 =>
-            array(
-               'deviceId' => $_POST["serialNumber"]
-            ),
+            $orders,
           ),
         ),
       ),
