@@ -190,8 +190,8 @@ function callDepApi($data){
 		//curl_setopt($ch, CURLOPT_SSLCERT, "/etc/ssl/certs/GRX-0000046475.ACC1914.Test.AppleCare.cert.pem");
 		curl_setopt($ch, CURLOPT_SSLCERTPASSWD,$_ENV["sslpass"]);
 	}
-	//curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $data); 
+	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+	//curl_setopt($ch, CURLOPT_POSTFIELDS, $data); 
 	
 	$response = curl_exec($ch); 
 	echo "<hr/>";
