@@ -91,7 +91,9 @@ if(count($slodecheck)>1) {
      $party = $slodecheck;
 }
 else {
-     $party = $_POST["serialNumber"];
+	$party = array();
+	array_push($party,$_POST["serialNumber"]);
+    //$party = $_POST["serialNumber"];
 }
 
 foreach ($party as $shindig) {
