@@ -169,7 +169,6 @@ function callDepApi($data){
 		curl_setopt($ch, CURLOPT_SSLCERTPASSWD,$_ENV["sslpass"]);
 	}
 	//curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-	$data = '{"requestContext": {"shipTo": "0000046475","timeZone": "300","langCode": "en"},"transactionId": "TXN_UofM_01","depResellerId": "14658A10","orders": [{"orderNumber": "ORDER_000001","orderDate": "2018-01-01T00:00:00Z","orderType": "OR","customerId": "10000","deliveries": [{"deliveryNumber": "D1.2","shipDate": "2018-01-02T00:00:00Z","devices": [{"deviceId": "C05SL2XAGMLM","assetTag": "A123456"},{"deviceId": "C05SL2XBGMLM","assetTag": "A123456"},{"deviceId": "C05SL2ZAGMLM","assetTag": "A123456"}]}]}]}';
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $data); 
 	
 	$response = curl_exec($ch); 
