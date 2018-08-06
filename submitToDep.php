@@ -82,6 +82,26 @@ function buildRequest(){
 		$resellerid = "14658A10";
 		$customerID = "10000";
 	}
+
+
+//////perhaps foolish
+$uberparty = array();
+$slodecheck = explode(",",$_POST["serialNumber"]);
+if(count($slodecheck)>1) {
+     $party = $slodecheck;
+}
+else {
+     $party = $_POST["serialNumber"];
+}
+
+foreach ($party as $shindig) {
+	//in case people put whitespace all up in this
+	$shindig = trim($shindig);
+	array_push($uberparty,(object) array('deviceId' => $shindig));
+}
+/////end what some may have said was foolish	
+	
+	
 	
 // $dateTime = date("Y-m-d\TH:i:s\Z");  // Double check.
  //per script
@@ -113,7 +133,7 @@ function buildRequest(){
            'devices' =>
           array (
             0 =>
-            $orders,
+            $uberparty,
           ),
         ),
       ),
