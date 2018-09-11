@@ -26,16 +26,16 @@ ENV DRUSH_VERSION 8.1.17
 RUN apt-get update \
   && apt-get install -y git
 
-#RUN curl -sS https://getcomposer.org/installer | php \
-#  && mv composer.phar /usr/local/bin/composer \
-#  && ln -s /usr/local/bin/composer /usr/bin/composer
-#
-#RUN git clone https://github.com/drush-ops/drush.git /usr/local/src/drush \
-#  && cd /usr/local/src/drush \
-#  && git checkout ${DRUSH_VERSION} \
-#  && ln -s /usr/local/src/drush/drush /usr/bin/drush \
-#  && composer install \
-#  && drush --version
+RUN curl -sS https://getcomposer.org/installer | php \
+  && mv composer.phar /usr/local/bin/composer \
+  && ln -s /usr/local/bin/composer /usr/bin/composer
+
+RUN git clone https://github.com/drush-ops/drush.git /usr/local/src/drush \
+  && cd /usr/local/src/drush \
+  && git checkout ${DRUSH_VERSION} \
+  && ln -s /usr/local/src/drush/drush /usr/bin/drush \
+  && composer install \
+  && drush --version
   # end drush doings
 
 
