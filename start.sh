@@ -29,6 +29,12 @@ a2enmod include
 a2ensite default-ssl 
 
 cd /var/www/html
+
+#Schleif adds
+git config --global user.name "${GITLAB_USER}"
+git config --global user.email "${GITLAB_EMAIL}"
+#end Schleif adds
+
 #drush @sites cc all --yes
 #drush up --no-backup --yes
 
